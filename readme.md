@@ -16,7 +16,7 @@ The API of this project can be found [here](swagger API)
 ![Typescript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
 ![Express](https://img.shields.io/badge/-Express-black?style=for-the-badge&logo=expressjs&logoColor=white)
 ![Mongodb](https://img.shields.io/badge/-mongodb-brightgreen?style=for-the-badge&logo=mongodb&logoColor=white)
-![Mongoose ODM](https://img.shields.io/badge/-mongoose-red?style=for-the-badge&logo=mongoose&logoColor=white)
+![Mongoose ODM](https://img.shields.io/badge/-mongoose-red?style=for-the-badge&logo=mongoosejs&logoColor=white)
 ![Mocha](https://img.shields.io/badge/-mocha-brown?style=for-the-badge&logo=mocha&logoColor=white)
 
 ## Play with this code locally:
