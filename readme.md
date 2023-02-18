@@ -1,6 +1,6 @@
 # MCP community Hangout
 
-This is a social media web application for MCP community. Community members ate able to:
+This is a social media web application for MCP community. Community members are able to:
 
 - sign up on the web application
 - login to the application
