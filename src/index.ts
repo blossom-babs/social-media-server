@@ -6,6 +6,7 @@ import multer from "multer"; // for file uploads
 import helmet from "helmet"; // for securing HTTP headers
 import morgan from "morgan"; // node and express middleware to log HTTP requests and errors
 import path from "path";
+import { register } from "./controllers/auth";
 
 // CONFIGURATION
 dotenv.config()
@@ -31,9 +32,14 @@ const storage = multer.diskStorage({
 })
 const upload = multer({ storage })
 
+// ROUTES WITH FILES
+
+app.post("/auth/register", upload.single("picture"), register)
+
 // DB CONNECTION
 const PORT = process.env.PORT || 6001
 const uri = process.env.MONGO_URL || ""
+
 mongoose.set('strictQuery', true)
 mongoose.connect(uri).then(() => {
   app.listen(PORT, () => console.log(`Server Port: ${PORT}`))
