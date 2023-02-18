@@ -1,5 +1,4 @@
 import express from "express";
-import bodyParser from "body-parser";
 import mongoose from "mongoose";
 import cors from "cors";
 import dotenv from "dotenv";
@@ -7,18 +6,37 @@ import multer from "multer"; // for file uploads
 import helmet from "helmet"; // for securing HTTP headers
 import morgan from "morgan"; // node and express middleware to log HTTP requests and errors
 import path from "path";
-import { fileURLToPath } from "url";
 
 // CONFIGURATION
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = path.dirname(__filename)
 dotenv.config()
 const app = express()
 app.use(express.json())
 app.use(helmet())
-app.use(helmet.crossOriginResourcePolicy({policy: "cross-origin"}))
+app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" }))
 app.use(morgan("common"))
 app.use(express.json())
-app.use(express.urlencoded())
+app.use(express.urlencoded({ extended: true}))
 app.use(cors())
 app.use("/assets", express.static(path.join(__dirname, 'public/assets')))
+
+// FILE STORAGE
+
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, "public/assets")
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.originalname)
+  }
+})
+const upload = multer({ storage })
+
+// DB CONNECTION
+const PORT = process.env.PORT || 6001
+const uri = process.env.MONGO_URL || ""
+mongoose.set('strictQuery', true)
+mongoose.connect(uri).then(() => {
+  app.listen(PORT, () => console.log(`Server Port: ${PORT}`))
+}).catch((error) => {
+  console.log(error)
+})
