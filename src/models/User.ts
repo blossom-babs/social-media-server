@@ -14,7 +14,7 @@ const UserSchema = new mongoose.Schema({
     min: 2,
     max: 50
   },
-  userName: {
+  username: {
     type: String,
     required: true,
     unique: true,
@@ -50,4 +50,4 @@ const UserSchema = new mongoose.Schema({
 
 const User = mongoose.model("User", UserSchema)
 
-export default User;
+export default User; 
