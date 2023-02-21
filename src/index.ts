@@ -7,6 +7,7 @@ import helmet from "helmet"; // for securing HTTP headers
 import morgan from "morgan"; // node and express middleware to log HTTP requests and errors
 import path from "path";
 import { register } from "./controllers/auth";
+import authRoutes from "./routers/auth";
 
 // CONFIGURATION
 dotenv.config()
@@ -35,6 +36,10 @@ const upload = multer({ storage })
 // ROUTES WITH FILES
 
 app.post("/auth/register", upload.single("picture"), register)
+
+// ROUTES
+
+app.use("/auth", authRoutes) 
 
 // DB CONNECTION
 const PORT = process.env.PORT || 6001
