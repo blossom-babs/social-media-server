@@ -36,12 +36,10 @@ export const register = async (req: Request, res: Response) => {
 };
 
 // login
-
 export const login = async (req: Request, res: Response) => {
 	let isMatch;
 
 	try {
-		//const { username, password } = req.body;
 		const user = await User.findOne({ username: req.body.username });
 		if (!user) {
 			return res.status(400).json({ message: 'User does not exist' });
@@ -53,8 +51,8 @@ export const login = async (req: Request, res: Response) => {
 		}
 
 		const token = jwt.sign({ id: user?._id }, process.env.JWT_SECRET || '');
-    const {password, ...others} = user.toObject()
-    return res.status(201).json({token, others})
+    const {password, ...userDetails} = user.toObject()
+    return res.status(201).json({token, userDetails})
 	} catch (error) {
 		if (error instanceof Error) {
 			res.status(500).json({ message: error.message });

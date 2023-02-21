@@ -13,3 +13,5 @@
 6. Mongoose does not return javascript object, it returns a moongoose document class as such destructuting will be weird - https://stackoverflow.com/questions/63897396/destructuring-of-the-object-returned-by-mongodb-query-result
 
 7. Login with jwt access on postman
+
+8. revisit req.user = verified on jwt verify - note that on login - user details is stored in userDetails
