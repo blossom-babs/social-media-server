@@ -42,7 +42,7 @@ const uri = process.env.MONGO_URL || ""
 
 mongoose.set('strictQuery', true)
 mongoose.connect(uri).then(() => {
-  app.listen(PORT, () => console.log(`Server Port: ${PORT}`))
+  app.listen(PORT, () => console.log(`Server started on Port: ${PORT}`))
 }).catch((error) => {
   console.log(error)
 })

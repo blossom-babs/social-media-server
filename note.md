@@ -5,3 +5,5 @@
 2. Save pictures in s3 bucket instead of locally 
 
 3. picture is not being saved locally
+
+4. map keeps track of its own size using the .size method (followers.size)
