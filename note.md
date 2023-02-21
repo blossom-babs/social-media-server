@@ -15,3 +15,7 @@
 7. Login with jwt access on postman
 
 8. revisit req.user = verified on jwt verify - note that on login - user details is stored in userDetails
+
+9. In postman, test authorization bearer token
+
+10. How do I keep track of my followers, people who follow me

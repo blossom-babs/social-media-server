@@ -42,12 +42,20 @@ const UserSchema = new mongoose.Schema({
     type: Map,
     of: Boolean
   },
-  followers: {
+}, { timestamps: true })
+
+const FollowerSchema = new mongoose.Schema({
+  userId: {
+    type: String,
+    required: true
+  },
+  following: {
     type: Map,
     of: Boolean
   }
-}, { timestamps: true })
+}, {timestamps: true})
 
 const User = mongoose.model("User", UserSchema)
+const Follower = mongoose.model("Follower", FollowerSchema)
 
-export default User; 
+export {User, FollowerSchema}; 

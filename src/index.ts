@@ -8,6 +8,7 @@ import morgan from "morgan"; // node and express middleware to log HTTP requests
 import path from "path";
 import { register } from "./controllers/auth";
 import authRoutes from "./routers/auth";
+//import userRoutes from "./routers/users"
 
 // CONFIGURATION
 dotenv.config()
@@ -34,12 +35,11 @@ const storage = multer.diskStorage({
 const upload = multer({ storage })
 
 // ROUTES WITH FILES
-
 app.post("/auth/register", upload.single("picture"), register)
 
 // ROUTES
-
 app.use("/auth", authRoutes) 
+//app.use("/users", userRoutes)
 
 // DB CONNECTION
 const PORT = process.env.PORT || 6001
@@ -47,6 +47,7 @@ const uri = process.env.MONGO_URL || ""
 
 mongoose.set('strictQuery', true)
 mongoose.connect(uri).then(() => {
+  //mongoose.connection.db.dropCollection('users');
   app.listen(PORT, () => console.log(`Server started on Port: ${PORT}`))
 }).catch((error) => {
   console.log(error)
