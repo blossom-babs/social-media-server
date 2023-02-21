@@ -11,9 +11,9 @@ import express from "express"
 const router = express.Router()
 
 // router.get("/:id", verifyToken, getUser)
-// router.put("/:id", verifyToken, updateUser)
+// router.patch("/:id", verifyToken, updateUser)
 // router.get("/:id/followers", verifyToken, getUserFollowers)
 // router.get("/:id/following", verifyToken, getUserFollowing)
-// router.patch("/:id", verifyToken, followUnfollowUsers)
+// router.patch("/:id/userId", verifyToken, followUnfollowUsers)
 
 export default router;
