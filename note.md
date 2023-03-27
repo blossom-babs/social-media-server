@@ -2,7 +2,7 @@
 
 1. update package.json with entry point, description and keyword
 
-2. Save pictures in s3 bucket instead of locally 
+2. Save pictures in s3 bucket instead of locally
 
 3. picture is not being saved locally <!-- 41:26 -->
 
@@ -19,3 +19,5 @@
 9. In postman, test authorization bearer token
 
 10. How do I keep track of my followers, people who follow me
+
+11. resuming this with either a test + wasted a bit of time with swagger docs documentation
